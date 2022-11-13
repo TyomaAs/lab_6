@@ -1,11 +1,266 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Marhey:wght@700&display=swap");
 
+//colors
+$mainGreen: #0b4141;
+$secondaryPowdery: #ffccbc;
+$white: #ffffff;
+
+//breakpoints
+$large: 1199px;
+$large-m: 991px;
+$tablet: 767px;
+$mobile: 424px;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
 html {
 	font-family: "Nunito Sans", sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-} //font-family: 'Marhey', cursive;
-
+	font-size: 16px;
+}
 body {
-	margin: 0;
+	margin: 0 auto;
+	width: 100%;
+	overflow-x: hidden;
+	max-width: 1920px;
+	color: $mainGreen;
+}
+.container {
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 15px;
+}
+.greenblock {
+	min-height: 800px;
+	color: $secondaryPowdery;
+	background-color: $mainGreen;
+	width: 100%;
+	.container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: flex-end;
+		min-height: 800px;
+	}
+	&__text {
+		max-width: 475px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		height: 100%;
+	}
+	&__heading {
+		font-weight: 900;
+		font-size: 68px;
+		line-height: 72px;
+	}
+	&__body {
+		font-size: 24px;
+		margin-top: 32px;
+	}
+	&__button {
+		display: inline-block;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 25px;
+		border: 3px solid $secondaryPowdery;
+		padding: 12px 10%;
+		border-radius: 29px;
+		margin-top: 50px;
+		margin-bottom: 88px;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background-color: $secondaryPowdery;
+			color: $mainGreen;
+		}
+	}
+	&__image {
+		flex: 0 1 auto;
+		max-width: 500px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	@media screen and (max-width: $tablet) {
+		.container {
+			flex-direction: column-reverse;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		&__heading {
+			font-size: 52px;
+			line-height: 60px;
+		}
+		&__button {
+			font-size: 18px;
+			padding: 5% 0;
+			text-align: center;
+			width: 100%;
+		}
+		&__image {
+			flex: 1 1 100%;
+			margin: 50px 0;
+		}
+	}
+}
+.whiteblock {
+	background-color: $white;
+	position: relative;
+	.container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		&:nth-child(1) {
+			margin: 190px auto 120px auto;
+		}
+	}
+	&__text {
+		max-width: 485px;
+	}
+	&__heading {
+		font-weight: 900;
+		font-size: 68px;
+		line-height: 72px;
+		&_powdery {
+			color: $secondaryPowdery;
+		}
+	}
+	&__body {
+		font-size: 24px;
+		line-height: 32px;
+		font-weight: 400;
+		margin: 32px 0;
+	}
+	&__image {
+		max-width: 510px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__circle {
+		position: relative;
+		width: 500px;
+		height: 485px;
+		background-color: $mainGreen;
+		border-radius: 50%;
+		img {
+			width: 100%;
+			position: absolute;
+			object-fit: contain;
+		}
+		&.darkgreen img {
+			top: -1.4%;
+			right: -1.24%;
+		}
+		&_powdery {
+			background-color: $secondaryPowdery;
+			img {
+				top: auto;
+				bottom: 0.3%;
+				right: -0.1031%;
+			}
+		}
+	}
+	&__scroll {
+		font-weight: 600;
+		font-size: 16px;
+		img {
+			margin-right: 12px;
+		}
+	}
+	@media screen and (max-width: $large) {
+		&__image {
+			margin: 0 10px;
+		}
+		&__circle {
+			width: 400px;
+			height: 388px;
+		}
+	}
+	@media screen and (max-width: $large-m) {
+		&__circle {
+			width: 320px;
+			height: 310.4px;
+		}
+	}
+	@media screen and (max-width: $tablet) {
+		.container {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			&:nth-child(1) {
+				margin: 60px auto;
+			}
+			&.darkgreen {
+				flex-direction: column-reverse;
+			}
+		}
+		&__heading {
+			font-size: 52px;
+		}
+		&__image {
+			max-width: auto;
+		}
+		&__circle {
+			width: 400px;
+			height: 388px;
+			margin-bottom: 60px;
+			&.darkgreen {
+				margin-bottom: 90px;
+			}
+		}
+	}
+	@media screen and (max-width: $mobile) {
+		&__circle {
+			width: 95vw;
+			height: 92.15vw;
+		}
+	}
+}
+.end {
+	width: 100%;
+	background-color: #eee8;
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__heading {
+		font-family: "Marhey", cursive;
+		color: $secondaryPowdery;
+		font-size: 80px;
+		line-height: 96px;
+		margin-top: 116px;
+		margin-bottom: 24px;
+		text-align: center;
+	}
+	&__text {
+		text-align: center;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		margin-bottom: 44px;
+		max-width: 800px;
+	}
+	&__flex {
+		width: 100%;
+		position: relative;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	@media screen and (max-width: $tablet) {
+		display: none;
+	}
 }
